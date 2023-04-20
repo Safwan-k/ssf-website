@@ -1,0 +1,7 @@
+{
+  "name": "ssfexam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
