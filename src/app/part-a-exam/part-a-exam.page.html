@@ -1,0 +1,21 @@
+<ion-content >
+  <form [formGroup]="examForm">
+    <div style="margin-top: 24px; margin-left: 31px;">
+      <ion-text style="font-size: 24px; font-weight: 500">Part A</ion-text>
+    </div>
+
+    <ion-list>
+      <ion-item  class="ion-margin-vertical" *ngFor="let element of questions; let i = index">
+        <div style="width: 100%">
+          <ion-label class="ion-margin-vertical ion-margin-horizontal ion-text-wrap">{{ element.Question }}</ion-label>
+          <ion-radio-group formControlName="{{element.question_id}}" (ionChange)="onRadioChange($event, i, element)" class="ion-padding">
+            <ion-item *ngFor="let choice of element.choices" lines="none">
+              <ion-radio mode="md" [value]="choice">{{choice}}</ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-button class="ion-margin-vertical ion-margin-horizontal" [disabled]="!this.examForm.valid" type="submit" expand="block" (click)="submitForm()">Submit</ion-button>
+  </form>
+</ion-content>

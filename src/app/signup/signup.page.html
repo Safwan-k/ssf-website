@@ -1,0 +1,27 @@
+<ion-content class="ion-padding">
+  <div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="studentForm">
+      <ion-input mode="md" placeholder="Enter name" label="Name" label-placement="floating" fill="solid"
+                 formControlName="name"></ion-input>
+
+      <ion-input mode="md" placeholder="Enter address" label="Address" label-placement="floating" fill="solid"
+                 formControlName="address"></ion-input>
+
+      <ion-input mode="md" placeholder="Enter email" label="Email" label-placement="floating" fill="solid"
+                 formControlName="email"></ion-input>
+
+      <ion-input mode="md" placeholder="Enter mobile" label="Mobile" label-placement="floating" fill="solid"
+                 formControlName="mobile"></ion-input>
+
+      <ion-select mode="md" formControlName="pursuingClass" label="Pursuing Class" label-placement="floating" fill="solid"  >
+        <ion-select-option  value="8th">8th</ion-select-option>
+        <ion-select-option value="9th">9th</ion-select-option>
+        <ion-select-option value="10th">10th</ion-select-option>
+        <ion-select-option value="Plus one">Plus one</ion-select-option>
+        <ion-select-option value="Plus two">Plus two</ion-select-option>
+      </ion-select>
+      <ion-button class="ion-margin-vertical" type="submit" expand="block">Submit</ion-button>
+
+    </form>
+  </div>
+</ion-content>
