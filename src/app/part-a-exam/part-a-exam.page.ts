@@ -23,6 +23,7 @@ export class PartAExamPage implements OnInit {
   checkQuestionFormHasDemoVal = false;
   marksheet_final: any[] = []
   grouped_data: any = {}
+  answer_loaded = false;
 
   student_id: any;
 
@@ -80,6 +81,7 @@ export class PartAExamPage implements OnInit {
     });
     this.http.get<any>('http://34.100.168.105/api/api/json?file=part-a').subscribe(response => {
       this.questions = response;
+      this.answer_loaded = true;
       console.log(response)
       this.check = true
       if (!this.checkQuestionFormHasDemoVal) {

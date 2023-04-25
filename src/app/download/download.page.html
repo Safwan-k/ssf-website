@@ -1,11 +1,35 @@
 <ion-content>
-  Hello
-  <div>
-    <ion-text>
-      Thank You
-    </ion-text>
-    <ion-button (click)="downloadReport()">
+  <ion-row style="display: flex;justify-content: center;height: 320px">
+    <lottie-player
+      autoplay
+      mode="normal"
+      style="width: 320px"
+      speed="1.5"
+      src="https://assets9.lottiefiles.com/packages/lf20_sabvcsrv.json"
+    >
+    </lottie-player>
+  </ion-row>
+  <ion-row style="display: flex; justify-content: center">
+    <ion-text style="font-weight: 900; color:rgb(13,92,143)">THANK YOU</ion-text>
+  </ion-row>
+  <ion-row style="display: flex;justify-content: center">
+    <ion-button style="margin-top: 30px; --background:rgb(13,92,143)" mode="ios" (click)="downloadReport()">
       Download Report
     </ion-button>
+  </ion-row>
+
+  <div style="display: flex; flex-direction: column; align-items: center;padding-top: 10%">
+    <ion-row class="footer">
+      <ion-text style="font-size: 18px;font-weight: 900; color:rgb(13,92,143) ">
+        WEFI KERALA
+      </ion-text>
+
+    </ion-row>
+    <ion-text style="font-size: 14px">
+      Studnets center, Calicut - 4
+    </ion-text>
+    <ion-text>
+      <a style="text-decoration: none; font-size: 14px" href="https://wefionline.in/">www.wefionline.in</a>
+    </ion-text>
   </div>
 </ion-content>

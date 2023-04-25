@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
+import "@lottiefiles/lottie-player";
+
 
 @Component({
   selector: 'app-download',
   templateUrl: './download.page.html',
   styleUrls: ['./download.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule]
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DownloadPage implements OnInit {
 

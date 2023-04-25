@@ -1,21 +1,30 @@
 <ion-content >
-  <form [formGroup]="examForm">
-    <div style="margin-top: 24px; margin-left: 31px;">
-      <ion-text style="font-size: 24px; font-weight: 500">Part A</ion-text>
-    </div>
-
-    <ion-list>
-      <ion-item  class="ion-margin-vertical" *ngFor="let element of questions; let i = index">
-        <div style="width: 100%">
-          <ion-label class="ion-margin-vertical ion-margin-horizontal ion-text-wrap">{{ element.Question }}</ion-label>
-          <ion-radio-group formControlName="{{element.question_id}}" (ionChange)="onRadioChange($event, i, element)" class="ion-padding">
-            <ion-item *ngFor="let choice of element.choices" lines="none">
-              <ion-radio mode="md" [value]="choice">{{choice}}</ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </div>
-      </ion-item>
-    </ion-list>
-    <ion-button class="ion-margin-vertical ion-margin-horizontal" [disabled]="!this.examForm.valid" type="submit" expand="block" (click)="submitForm()">Submit</ion-button>
-  </form>
+  <ion-row style="display: flex; justify-content: center;margin-top: 30px;font-weight: 600;">
+    <ion-text style="font-size: 22px;color:rgb(13,92,143)">Part A</ion-text>
+  </ion-row>
+  <ion-row *ngIf="answer_loaded" style="background: aliceblue" class="row-form">
+    <form style="max-width: 400px" [formGroup]="examForm">
+      <ion-list>
+        <ion-item class="ion-margin-vertical" *ngFor="let element of questions; let i = index">
+          <div style="width: 100%">
+            <ion-label
+              class="ion-margin-vertical ion-margin-horizontal ion-text-wrap"><b>{{i+1}}.&nbsp;</b> {{ element.Question }}</ion-label>
+            <ion-radio-group formControlName="{{element.question_id}}" (ionChange)="onRadioChange($event, i, element)"
+                             class="ion-padding">
+              <ion-item *ngFor="let choice of element.choices" lines="none">
+                <ion-radio mode="md" [value]="choice">{{choice}}</ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </div>
+        </ion-item>
+      </ion-list>
+      <ion-row *ngIf="answer_loaded" class="row-footer">
+        <ion-button mode="ios" style="--background:rgb(13,92,143)" class="ion-margin-vertical ion-margin-horizontal"
+                    [disabled]="!this.examForm.valid" type="submit"
+                    expand="block" (click)="submitForm()">
+          <ion-text style="font-size: 18px">Submit</ion-text>
+        </ion-button>
+      </ion-row>
+    </form>
+  </ion-row>
 </ion-content>
