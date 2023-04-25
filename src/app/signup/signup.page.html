@@ -1,27 +1,65 @@
 <ion-content class="ion-padding">
   <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="studentForm">
-      <ion-input mode="md" placeholder="Enter name" label="Name" label-placement="floating" fill="solid"
-                 formControlName="name"></ion-input>
+    <ion-row class="image">
+      <img src="assets/images/logo.png" style="max-width: 200px;height: 100px !important;" alt="">
+    </ion-row >
+    <ion-row class="row-form">
+      <div class="form-div">
+        <form (ngSubmit)="onSubmit()" [formGroup]="studentForm">
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-input mode="md" placeholder="Enter name" label="Name" label-placement="floating"
+                       formControlName="name"></ion-input>
+          </ion-item>
 
-      <ion-input mode="md" placeholder="Enter address" label="Address" label-placement="floating" fill="solid"
-                 formControlName="address"></ion-input>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-input mode="md" placeholder="Enter address" label="Address" label-placement="floating"
+                       formControlName="address"></ion-input>
+          </ion-item>
 
-      <ion-input mode="md" placeholder="Enter email" label="Email" label-placement="floating" fill="solid"
-                 formControlName="email"></ion-input>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-input mode="md" placeholder="Enter email" label="Email" label-placement="floating"
+                       formControlName="email"></ion-input>
+          </ion-item>
 
-      <ion-input mode="md" placeholder="Enter mobile" label="Mobile" label-placement="floating" fill="solid"
-                 formControlName="mobile"></ion-input>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-input mode="md" placeholder="Enter mobile" label="Mobile" label-placement="floating"
+                       formControlName="mobile"></ion-input>
+          </ion-item>
 
-      <ion-select mode="md" formControlName="pursuingClass" label="Pursuing Class" label-placement="floating" fill="solid"  >
-        <ion-select-option  value="8th">8th</ion-select-option>
-        <ion-select-option value="9th">9th</ion-select-option>
-        <ion-select-option value="10th">10th</ion-select-option>
-        <ion-select-option value="Plus one">Plus one</ion-select-option>
-        <ion-select-option value="Plus two">Plus two</ion-select-option>
-      </ion-select>
-      <ion-button class="ion-margin-vertical" type="submit" expand="block">Submit</ion-button>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-select mode="md" formControlName="pursuingClass" label="Pursuing Class" label-placement="floating"
+            >
+              <ion-select-option value="8th">8th</ion-select-option>
+              <ion-select-option value="9th">9th</ion-select-option>
+              <ion-select-option value="10th">10th</ion-select-option>
+              <ion-select-option value="Plus one">Plus one</ion-select-option>
+              <ion-select-option value="Plus two">Plus two</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button class="ion-margin-vertical ion-padding-horizontal" style="margin-top: 50px; --background:rgb(13,92,143)" mode="ios" type="submit" expand="block">
+            <ion-text style="font-size: 18px">
+              Submit
+            </ion-text>
+          </ion-button>
 
-    </form>
+        </form>
+      </div>
+    </ion-row>
+
+    <div style="display: flex; flex-direction: column; align-items: center;padding-top: 15%">
+      <ion-row class="footer">
+        <ion-text style="font-size: 18px;font-weight: 900; color:rgb(13,92,143) ">
+          WEFI KERALA
+        </ion-text>
+
+      </ion-row>
+      <ion-text style="font-size: 14px">
+        Studnets center, Calicut - 4
+      </ion-text>
+      <ion-text>
+        <a style="text-decoration: none; font-size: 14px" href="https://wefionline.in/">www.wefionline.in</a>
+      </ion-text>
+    </div>
   </div>
 </ion-content>
+
