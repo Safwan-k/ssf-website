@@ -5,7 +5,7 @@
     </ion-row >
     <ion-row class="row-form">
       <div class="form-div">
-        <form (ngSubmit)="onSubmit()" [formGroup]="studentForm">
+        <form style="padding: 10px !important;" (ngSubmit)="onSubmit()" [formGroup]="studentForm">
           <ion-item class="ion-no-padding ion-no-margin">
             <ion-input mode="md" placeholder="Enter name" label="Name" label-placement="floating"
                        formControlName="name"></ion-input>
@@ -41,25 +41,26 @@
               Submit
             </ion-text>
           </ion-button>
-
         </form>
       </div>
     </ion-row>
-
-    <div style="display: flex; flex-direction: column; align-items: center;padding-top: 15%">
-      <ion-row class="footer">
-        <ion-text style="font-size: 18px;font-weight: 900; color:rgb(13,92,143) ">
-          WEFI KERALA
-        </ion-text>
-
-      </ion-row>
-      <ion-text style="font-size: 14px">
-        Studnets center, Calicut - 4
-      </ion-text>
-      <ion-text>
-        <a style="text-decoration: none; font-size: 14px" href="https://wefionline.in/">www.wefionline.in</a>
-      </ion-text>
-    </div>
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border" style="margin-bottom: 30px">
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <ion-row class="footer">
+      <ion-text style="font-size: 18px;font-weight: 900; color:rgb(13,92,143) ">
+        WEFI KERALA
+      </ion-text>
+
+    </ion-row>
+    <ion-text style="font-size: 14px">
+      Studnets center, Calicut - 4
+    </ion-text>
+    <ion-text>
+      <a style="text-decoration: none; font-size: 14px" href="https://wefionline.in/">www.wefionline.in</a>
+    </ion-text>
+  </div>
+</ion-footer>
 
