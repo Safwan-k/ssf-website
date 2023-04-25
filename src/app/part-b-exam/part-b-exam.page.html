@@ -5,7 +5,7 @@
   <ion-row *ngIf="answer_loaded" style="display: flex; justify-content: center; background: aliceblue">
     <form style="max-width: 400px" [formGroup]="examForm">
       <ion-list>
-        <ion-item class="ion-margin-vertical" *ngFor="let element of questions; let i = index">
+        <ion-item class="ion-margin-vertical back-trans" *ngFor="let element of questions; let i = index">
           <div style="width: 100%">
             <ion-label
               class="ion-margin-vertical ion-margin-horizontal ion-text-wrap"><b>{{i+1}}.&nbsp;</b>{{ element.Question }}</ion-label>

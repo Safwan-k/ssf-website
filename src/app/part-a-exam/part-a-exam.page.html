@@ -2,10 +2,10 @@
   <ion-row style="display: flex; justify-content: center;margin-top: 30px;font-weight: 600;">
     <ion-text style="font-size: 22px;color:rgb(13,92,143)">Part A</ion-text>
   </ion-row>
-  <ion-row *ngIf="answer_loaded" style="background: aliceblue" class="row-form">
-    <form style="max-width: 400px" [formGroup]="examForm">
+  <ion-row  *ngIf="answer_loaded" style="background: aliceblue" class="row-form">
+    <form style="max-width: 400px;" [formGroup]="examForm">
       <ion-list>
-        <ion-item class="ion-margin-vertical" *ngFor="let element of questions; let i = index">
+        <ion-item class="ion-margin-vertical back-trans" *ngFor="let element of questions; let i = index">
           <div style="width: 100%">
             <ion-label
               class="ion-margin-vertical ion-margin-horizontal ion-text-wrap"><b>{{i+1}}.&nbsp;</b> {{ element.Question }}</ion-label>
