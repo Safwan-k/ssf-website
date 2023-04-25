@@ -108,6 +108,7 @@ export class PartBExamPage implements OnInit {
 
   async submitForm() {
     try {
+      this.grouped_data = {}
       if (this.examForm.valid) {
         this.questionForms.forEach(({mark, group}) => {
           if (!this.grouped_data[group]) {

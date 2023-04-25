@@ -19,7 +19,7 @@
         </ion-item>
       </ion-list>
       <ion-row *ngIf="answer_loaded" class="row-footer">
-        <ion-button mode="ios" style="--background:rgb(13,92,143)" class="ion-margin-vertical ion-margin-horizontal"
+        <ion-button mode="ios" style="--background:rgb(13,92,143)" class="ion-margin-vertical ion-margin-horizontal no-ripple"
                     [disabled]="!this.examForm.valid" type="submit"
                     expand="block" (click)="submitForm()">
           <ion-text style="font-size: 18px">Submit</ion-text>
