@@ -168,7 +168,8 @@ export class PartAExamPage implements OnInit {
     for (let i = 0; i < data.length; i++) {
       sum += data[i];
     }
-    return (sum / 20) * 100
+    sum = sum/ 20 * 100;
+    return sum.toFixed(2)
   }
 
 }

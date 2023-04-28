@@ -163,7 +163,8 @@ export class PartBExamPage implements OnInit {
     for (let i = 0; i < data.length; i++) {
       sum += data[i];
     }
-    return (sum / 10) * 100
+    sum = sum/ 10 * 100;
+    return sum.toFixed(2)
   }
 
 
