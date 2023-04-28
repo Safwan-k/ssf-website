@@ -164,7 +164,7 @@ export class PartBExamPage implements OnInit {
       sum += data[i];
     }
     sum = sum/ 10 * 100;
-    return sum.toFixed(2)
+    return parseInt(sum.toFixed(0))
   }
 
 

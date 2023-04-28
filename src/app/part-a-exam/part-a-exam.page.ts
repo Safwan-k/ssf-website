@@ -169,7 +169,7 @@ export class PartAExamPage implements OnInit {
       sum += data[i];
     }
     sum = sum/ 20 * 100;
-    return sum.toFixed(2)
+    return parseInt(sum.toFixed(0))
   }
 
 }
