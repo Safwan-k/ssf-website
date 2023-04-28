@@ -144,6 +144,9 @@ export class PartBExamPage implements OnInit {
           conventional: total_mark_of_conventional,
         };
         LocalStorage.setPartB(JSON.stringify(data))
+        this.http.post(url, data).subscribe(response => {
+          console.log(response);
+        });
         await this.router.navigate(['/download', this.student_id])
 
       } else {
