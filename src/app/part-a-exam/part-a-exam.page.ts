@@ -110,7 +110,7 @@ export class PartAExamPage implements OnInit {
     }
   }
 
- async submitForm() {
+  submitForm() {
     try{
       this.grouped_data = {}
       if (this.examForm.valid) {
@@ -151,8 +151,8 @@ export class PartAExamPage implements OnInit {
         this.http.post(url, data).subscribe(response => {
           console.log(response);
         });
-        await this.route.navigate(['/part-b-exam', this.student_id])
 
+        this.route.navigate(['/part-b-exam', this.student_id])
 
       } else {
         console.log('this is valid')

@@ -108,7 +108,7 @@ export class PartBExamPage implements OnInit {
     this.questionForms.splice(questionIndex, 1, data)
   }
 
-  async submitForm() {
+  submitForm() {
     try {
       this.grouped_data = {}
       if (this.examForm.valid) {
@@ -147,7 +147,7 @@ export class PartBExamPage implements OnInit {
         this.http.post(url, data).subscribe(response => {
           console.log(response);
         });
-        await this.router.navigate(['/download', this.student_id])
+        this.router.navigate(['/download', this.student_id])
 
       } else {
         console.log('this is valid')
