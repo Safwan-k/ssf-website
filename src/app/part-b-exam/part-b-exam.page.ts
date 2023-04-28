@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, V
 import {IonicModule} from '@ionic/angular';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {BaseApi} from "../base/base-api";
+import {LocalStorage} from "../base/local-storage";
 
 @Component({
   selector: 'app-part-b-exam',
@@ -73,19 +75,19 @@ export class PartBExamPage implements OnInit {
       QBCO5: ['', Validators.required],
     });
 
-   try{
-     this.http.get<any>('http://34.100.168.105/api/api/json?file=part-b').subscribe(response => {
-       this.questions = response;
-       this.answer_loaded = true;
-       console.log(response)
-       this.check = true
-       if (!this.checkQuestionFormHasDemoVal) {
-         this.checkQuestionForm()
-       }
-     });
-   } catch (e) {
-     console.log('exception occured: ', e)
-   }
+    try {
+      this.http.get<any>(BaseApi.PLATFORM_API_HOST_URL + '/api/json?file=part-b').subscribe(response => {
+        this.questions = response;
+        this.answer_loaded = true;
+        console.log(response)
+        this.check = true
+        if (!this.checkQuestionFormHasDemoVal) {
+          this.checkQuestionForm()
+        }
+      });
+    } catch (e) {
+      console.log('exception occured: ', e)
+    }
   }
 
   checkQuestionForm() {
@@ -131,7 +133,7 @@ export class PartBExamPage implements OnInit {
         let total_mark_of_realistic = this.total_mark_of_an_array(groupdata.groups[0].Realistic)
         let total_mark_of_social = this.total_mark_of_an_array(groupdata.groups[0].Social)
 
-        const url = 'http://34.100.168.105/api/api/question?part=b';
+        const url =  BaseApi.PLATFORM_API_HOST_URL+ '/api/question?part=b';
         const data = {
           student_id: this.student_id,
           realistic: total_mark_of_realistic,
@@ -141,6 +143,7 @@ export class PartBExamPage implements OnInit {
           enterprising: total_mark_of_enterprising,
           conventional: total_mark_of_conventional,
         };
+        LocalStorage.setPartB(JSON.stringify(data))
         this.http.post(url, data).subscribe(response => {
           console.log(response);
         });

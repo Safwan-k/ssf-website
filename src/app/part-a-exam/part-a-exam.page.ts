@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {IonicModule} from '@ionic/angular';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
+import {BaseApi} from "../base/base-api";
+import {LocalStorage} from "../base/local-storage";
 
 @Component({
   selector: 'app-part-a-exam',
@@ -79,7 +81,7 @@ export class PartAExamPage implements OnInit {
       QAIA4: ['', Validators.required],
       QAIA5: ['', Validators.required],
     });
-    this.http.get<any>('http://34.100.168.105/api/api/json?file=part-a').subscribe(response => {
+    this.http.get<any>(BaseApi.PLATFORM_API_HOST_URL+'/api/json?file=part-a').subscribe(response => {
       this.questions = response;
       this.answer_loaded = true;
       console.log(response)
@@ -134,7 +136,7 @@ export class PartAExamPage implements OnInit {
         let total_mark_of_interpersonal = this.total_mark_of_an_array(groupdata.groups[0].Interpersonal)
         let total_mark_of_intrapersonal = this.total_mark_of_an_array(groupdata.groups[0].Intrapersonal)
 
-        const url = 'http://34.100.168.105/api/api/question?part=a';
+        const url = BaseApi.PLATFORM_API_HOST_URL+'/api/question?part=a';
         const data = {
           student_id: this.student_id,
           linguistic: total_mark_of_linguistic,
@@ -145,6 +147,7 @@ export class PartAExamPage implements OnInit {
           interpersonal: total_mark_of_interpersonal,
           intrapersonal: total_mark_of_intrapersonal,
         };
+        LocalStorage.setPartA(JSON.stringify(data))
         this.http.post(url, data).subscribe(response => {
           console.log(response);
         });

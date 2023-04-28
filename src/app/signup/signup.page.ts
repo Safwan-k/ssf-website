@@ -5,6 +5,8 @@ import {IonicModule} from '@ionic/angular';
 import {Router} from "@angular/router";
 import { v4 as uuidv4 } from "uuid";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {BaseApi} from "../base/base-api";
+import {LocalStorage} from "../base/local-storage";
 
 
 
@@ -37,12 +39,16 @@ export class SignupPage implements OnInit {
 
   async onSubmit() {
    try{
-     const student_id = parseInt(uuidv4().replace(/[^\d]/g, '').substr(0, 6), 10);
+     let student_id = parseInt(uuidv4().replace(/[^\d]/g, '').substr(1, 6), 10);
+     while (student_id < 100000) {
+       student_id *= 10;
+     }
+     student_id = parseInt(String(student_id))
      console.log(student_id)
      if (this.studentForm.valid) {
 
        const form = this.studentForm.value
-       const url = 'http://34.100.168.105/api/api/signup';
+       const url = BaseApi.PLATFORM_API_HOST_URL +'/api/signup';
        const data = {
          "id": student_id,
          "name": form.name,
@@ -51,7 +57,7 @@ export class SignupPage implements OnInit {
          "mobile": form.mobile,
          "pursuing_class": form.pursuingClass
        };
-       console.log(data)
+       LocalStorage.setResponse(JSON.stringify(data))
        try{
          this.http.post(url, data).subscribe(response =>  {
            console.log(response);
