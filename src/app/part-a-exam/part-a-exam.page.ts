@@ -110,7 +110,7 @@ export class PartAExamPage implements OnInit {
     }
   }
 
-  submitForm() {
+  async submitForm() {
     try{
       this.grouped_data = {}
       if (this.examForm.valid) {
@@ -148,11 +148,7 @@ export class PartAExamPage implements OnInit {
           intrapersonal: total_mark_of_intrapersonal,
         };
         LocalStorage.setPartA(JSON.stringify(data))
-        this.http.post(url, data).subscribe(response => {
-          console.log(response);
-        });
-
-        this.route.navigate(['/part-b-exam', this.student_id])
+        await this.route.navigate(['/part-b-exam', this.student_id])
 
       } else {
         console.log('this is valid')

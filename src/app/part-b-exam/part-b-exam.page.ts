@@ -108,7 +108,7 @@ export class PartBExamPage implements OnInit {
     this.questionForms.splice(questionIndex, 1, data)
   }
 
-  submitForm() {
+  async submitForm() {
     try {
       this.grouped_data = {}
       if (this.examForm.valid) {
@@ -144,10 +144,7 @@ export class PartBExamPage implements OnInit {
           conventional: total_mark_of_conventional,
         };
         LocalStorage.setPartB(JSON.stringify(data))
-        this.http.post(url, data).subscribe(response => {
-          console.log(response);
-        });
-        this.router.navigate(['/download', this.student_id])
+        await this.router.navigate(['/download', this.student_id])
 
       } else {
         console.log('this is valid')
