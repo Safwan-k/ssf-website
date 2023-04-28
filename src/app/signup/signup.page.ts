@@ -22,9 +22,7 @@ export class SignupPage implements OnInit {
   studentForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private route: Router, private http: HttpClient) {
-    console.log('here coming')
-
-
+    localStorage.clear()
   }
 
   ngOnInit() {
